@@ -25,7 +25,7 @@ napi_deferred deferred_example_method;
 
 void execute_example_method(napi_env env, void* data){
   arg_example_method* _data = (arg_example_method*)data;
-  _data->output = _data->input1 * input2;
+  _data->output = _data->input1 * _data->input2;
 }
 
 void complete_example_method(napi_env env, napi_status nd_status, void* data){
@@ -53,13 +53,13 @@ void complete_example_method(napi_env env, napi_status nd_status, void* data){
 napi_value example_method(napi_env env, const napi_callback_info info){
   napi_status status;
   
-  size_t argc = 0;
+  size_t argc = 2;
   napi_value args[2];
   status = napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
   
   static arg_example_method argArr;
-  status = napi_get_value_double(env, arg[0], &(argArr.input1));
-  status = napi_get_value_double(env, arg[1], &(argArr.input2));
+  status = napi_get_value_double(env, args[0], &(argArr.input1));
+  status = napi_get_value_double(env, args[1], &(argArr.input2));
   
   return create_promise(env, deferred_example_method, execute_example_method, complete_example_method, &argArr);
 }
