@@ -9,7 +9,7 @@ This is to give everybody a starting point to work on because I could not find a
 It has been tested on my Win7 local machine.
 
 # Working environment:
-* node v8.9.1
+* node v8.9.3
 
 # To install:
 npm install

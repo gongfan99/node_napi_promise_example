@@ -1,5 +1,3 @@
-#include <memory>
-
 typedef struct {
   double input1;
   double input2;

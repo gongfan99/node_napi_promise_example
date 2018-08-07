@@ -9,8 +9,8 @@ const my_module = require('bindings')('simple-example'),
 	
 		console.log("a = ", a);
 		console.log("b = ", b);
-		console.log("c = ", c);
-		assert.equal(a * b, c);
+		console.log("c.ans = ", c.ans);
+		assert.equal(a * b, c.ans);
 	
 	} catch (err){
 		console.log(err.message);
